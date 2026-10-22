@@ -1,0 +1,18 @@
+=== TASK 6: Atomic CAS vs. OS Mutex ===
+Threads: 8
+Increments per thread: 1,000,000
+Total operations per test: 8,000,000
+
+Running mutex benchmark...
+Running CAS benchmark...
+
+=== RESULTS ===
+Mutex Execution Time: 111.102 ms
+Mutex Throughput: 72005688 ops/sec
+Atomic CAS Execution Time: 637.148 ms
+Atomic CAS Throughput: 12555946 ops/sec
+Throughput Ratio (CAS / Mutex): 0.174x
+Verification: PASS
+Mutex final counter: 8000000
+CAS final counter: 8000000
+Status: Completed successfully
