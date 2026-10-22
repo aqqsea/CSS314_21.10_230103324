@@ -1,0 +1,47 @@
+=== TASK 5: The Overhead Crossover Point ===
+Student ID: 230103324
+Operating System: macOS-26.6.2-arm64-arm-64bit-Mach-O
+CPU Architecture: arm64
+CPU Description: arm
+Logical CPU count / workers: 8
+Vector operation: y[i] = 1.25 * x[i] + 0.75
+Array sizes: [100, 1000, 10000, 100000, 1000000, 10000000]
+Benchmark repetitions: 3
+
+Preparing shared float64 arrays...
+
+Starting process pool...
+Pool startup and warm-up: 80.248 ms
+The startup cost is reported separately; each measured parallel operation includes task scheduling and waiting.
+Measured N=100: serial=0.006 ms, parallel=1.089 ms, valid=True
+Measured N=1,000: serial=0.105 ms, parallel=1.092 ms, valid=True
+Measured N=10,000: serial=0.419 ms, parallel=0.762 ms, valid=True
+Measured N=100,000: serial=4.224 ms, parallel=1.445 ms, valid=True
+Measured N=1,000,000: serial=39.071 ms, parallel=10.742 ms, valid=True
+Measured N=10,000,000: serial=473.955 ms, parallel=95.796 ms, valid=True
+
+=== BENCHMARK TABLE ===
+           N |  Serial (ms) |    Pool (ms) |  Pool/Serial |     Result
+-----------------------------------------------------------------------
+         100 |        0.006 |        1.089 |     197.961x |     SLOWER
+       1,000 |        0.105 |        1.092 |      10.371x |     SLOWER
+      10,000 |        0.419 |        0.762 |       1.819x |     SLOWER
+     100,000 |        4.224 |        1.445 |       0.342x |     FASTER
+   1,000,000 |       39.071 |       10.742 |       0.275x |     FASTER
+  10,000,000 |      473.955 |       95.796 |       0.202x |     FASTER
+
+=== REUSED-POOL CROSSOVER ===
+  Crossover range: N > 10,000 and N <= 100,000
+  At N=10,000: parallel is 1.819x the serial time.
+  At N=100,000: parallel is 0.342x the serial time.
+
+=== ONE-SHOT CROSSOVER (INCLUDING POOL STARTUP) ===
+  Crossover range: N > 1,000,000 and N <= 10,000,000
+  At N=1,000,000: parallel is 2.329x the serial time.
+  At N=10,000,000: parallel is 0.371x the serial time.
+
+Interpretation:
+Pool/Serial < 1 means parallel execution was faster.
+Pool/Serial > 1 means serial execution was faster.
+A crossover is reported as a range between adjacent tested array sizes, not an unmeasured exact integer.
+Status: Completed successfully
