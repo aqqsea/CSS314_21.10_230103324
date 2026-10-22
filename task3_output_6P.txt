@@ -1,0 +1,13 @@
+=== TASK 3: Parallel Prefix Scan ===
+Student ID: 230103324
+Array size: 2,000,000
+Random seed: 230103324
+Workers: 4
+
+=== RESULTS ===
+Serial Time: 60.909 ms
+Parallel Time: 131.998 ms
+Speedup: 0.461x
+Verification Status: PASS
+Final prefix sum: 10999555
+Status: Completed successfully
