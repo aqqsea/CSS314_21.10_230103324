@@ -1,0 +1,19 @@
+=== TASK 4: Work Stealing & Scheduling Under Skew ===
+Student ID: 230103324
+Operating System: macOS-26.6.2-arm64-arm-64bit-Mach-O
+Logical CPU count: 8
+Items: 1000
+Workers: 4
+Simulated workload: sleep(0.0001 * (i % 20))
+
+=== BENCHMARK RESULTS ===
+Strategy                        Wall Time (ms)  Completion Delta (ms)
+----------------------------------------------------------------------
+Static (250 items/worker)              303.537                 13.424
+Dynamic (chunk=1)                      295.639                  1.628
+Dynamic (chunk=5)                      331.378                  9.269
+
+Validation: All 1000 items processed in each strategy.
+Note: Timings vary by system load and Python scheduling.
+Dynamic scheduling uses a shared queue.
+Status: Completed successfully
