@@ -1,0 +1,20 @@
+=== TASK 1: Hardware Probe & Serial Baseline ===
+Student ID: 230103324
+Operating System: macOS-26.6.2-arm64-arm-64bit-Mach-O
+CPU: arm
+Logical CPU Cores: 8
+Python Version: 3.13.5
+Array Size: 20,000,000
+Data Type: float64
+
+Generating array...
+
+Starting serial calculations...
+
+=== RESULTS ===
+Mathematical Sum: 10003708.5857311711
+Mean: 0.5001854293
+Standard Deviation: 0.2886379656
+Serial Execution Time: 1568.045 ms
+Execution Mode: Serial (single thread)
+Status: Completed successfully
