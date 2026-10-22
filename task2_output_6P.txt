@@ -1,0 +1,27 @@
+=== TASK 2: PRNG State Bottleneck ===
+Student ID: 230103324
+Operating System: macOS-26.6.2-arm64-arm-64bit-Mach-O
+Logical CPU cores: 8
+Threads: 4
+Total sample points: 40,000,000
+Points per thread: 10,000,000
+
+Running shared PRNG with lock...
+Running independent PRNG states...
+
+=== RESULTS ===
+Shared PRNG:
+  Computed pi: 3.1413841000
+  Absolute error: 0.0002085536
+  Wall time: 7534.644 ms
+
+Independent PRNG:
+  Computed pi: 3.1415989000
+  Absolute error: 0.0000062464
+  Wall time: 3590.653 ms
+
+=== PERFORMANCE COMPARISON ===
+Speedup factor (shared / independent): 2.098x
+
+Note: CPython's GIL limits CPU-bound thread parallelism. This test compares shared-state locking with independent PRNG state, but does not guarantee multi-core speedup.
+Status: Completed successfully
