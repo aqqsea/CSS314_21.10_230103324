@@ -1,0 +1,47 @@
+=== TASK 7: Arithmetic Intensity vs. Memory Bottlenecks ===
+Student ID: 230103324
+Operating System: macOS / Unix-compatible system
+Physical CPU cores: 8
+Logical CPU cores: 8
+Array elements: 30000000
+Bytes per array: 228.9 MiB
+Worker counts: 1, 2, 8 physical cores
+Repeats per configuration: 3 (median reported)
+Timing includes thread creation and joining.
+
+Initializing arrays...
+
+Running Kernel A: Memory-Bound vector copy...
+  Kernel A with 1 worker(s)...
+  Kernel A with 2 worker(s)...
+  Kernel A with 8 worker(s)...
+
+Running Kernel B: Compute-Bound trigonometric operation...
+  Kernel B with 1 worker(s)...
+  Kernel B with 2 worker(s)...
+  Kernel B with 8 worker(s)...
+
+=== KERNEL A: MEMORY COPY ===
+   Cores |  Wall Time (ms) |    Speedup |   Efficiency
+----------------------------------------------------
+       1 |           7.097 |     1.000x |       1.000
+       2 |           6.817 |     1.041x |       0.521
+       8 |           7.982 |     0.889x |       0.111
+
+=== KERNEL B: SIN * COS + TAN ===
+   Cores |  Wall Time (ms) |    Speedup |   Efficiency
+----------------------------------------------------
+       1 |         198.337 |     1.000x |       1.000
+       2 |          95.119 |     2.085x |       1.043
+       8 |          45.914 |     4.320x |       0.540
+
+=== SCALING DIAGNOSIS ===
+Kernel A max-core speedup: 0.889x
+Kernel B max-core speedup: 4.320x
+Kernel A speedup from 2 to max cores: 0.854x
+Kernel B speedup from 2 to max cores: 2.072x
+Kernel A max-core efficiency: 0.111
+Kernel B max-core efficiency: 0.540
+Conclusion: Kernel A (Memory-Bound) stalled in scaling relative to Kernel B. This is consistent with memory-channel/bandwidth saturation.
+Output checksum: 9.7312005960
+Status: Completed successfully
