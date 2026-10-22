@@ -1,0 +1,39 @@
+=== TASK 1: Row-Major vs. Column-Major Cache Traversal ===
+Student ID: 230103324
+Matrix dimensions: 8000 x 8000
+Element type: float64 (double, 8 bytes)
+Random seed: 230103324
+Logical CPU cores: 8
+Physical CPU cores / workers: 8
+Matrix size: 488.3 MiB
+Timing repetitions per mode: 3
+
+Initializing matrix...
+Matrix initialized successfully.
+Timing excludes allocation and initialization.
+Each timed pass includes thread creation and joining.
+
+Benchmark round 1/3
+  Mode A (Row-Major): 47.366 ms
+  Mode B (Column-Major): 62.471 ms
+
+Benchmark round 2/3
+  Mode A (Row-Major): 11.728 ms
+  Mode B (Column-Major): 63.663 ms
+
+Benchmark round 3/3
+  Mode A (Row-Major): 15.406 ms
+  Mode B (Column-Major): 66.267 ms
+
+=== FINAL RESULTS (median of 3 runs) ===
+Student ID: 230103324
+Logical CPU cores: 8
+Workers used: 8 physical cores
+Mode A - Row-Major runtime: 15.406 ms
+Mode B - Column-Major runtime: 63.663 ms
+Cache penalty factor (B / A): 4.132x
+Row-Major sum: 32001930.959176816046
+Column-Major sum: 32001930.959176648408
+Absolute sum difference: 0.000000167638
+Note: floating-point sums may differ slightly because addition order changes.
+Status: Completed successfully
