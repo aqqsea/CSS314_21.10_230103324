@@ -1,0 +1,31 @@
+=== TASK 5: Thread Oversubscription Threshold ===
+Logical CPU cores: 8
+CPU-bound tasks: 10,000
+Hashes per task: 500
+Pool sizes: [1, 4, 8, 16, 32, 128, 256]
+
+Benchmark running; larger pools may take longer...
+Completed pool size 1: 3480.46 ms
+Completed pool size 4: 3510.01 ms
+Completed pool size 8: 3378.68 ms
+Completed pool size 16: 3399.84 ms
+Completed pool size 32: 3376.29 ms
+Completed pool size 128: 3504.21 ms
+Completed pool size 256: 3565.56 ms
+
+=== RESULTS ===
+ Pool Size | Execution Time (ms) | Speedup vs 1 thread | Status
+-----------------------------------------------------------------------------
+         1 |             3480.46 |               1.000x | OK
+         4 |             3510.01 |               0.992x | FIRST WORSENING
+         8 |             3378.68 |               1.030x | OK
+        16 |             3399.84 |               1.024x | SLOWER
+        32 |             3376.29 |               1.031x | OK
+       128 |             3504.21 |               0.993x | SLOWER
+       256 |             3565.56 |               0.976x | SLOWER
+
+=== SATURATION DIAGNOSIS ===
+First measured worsening: pool size 4 (slower than the preceding tested pool size).
+Note: This identifies an observed performance regression, not proof of context switching as the sole cause. Python's GIL and thread-pool overhead can also affect results.
+Verification checksum: 1060000
+Status: Completed successfully
