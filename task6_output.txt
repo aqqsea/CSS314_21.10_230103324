@@ -1,0 +1,28 @@
+=== TASK 6: Synchronization Cost & Data Loss ===
+Student ID: 230103324
+Threads: 4
+Increments per thread: 2000000
+Expected final value: 8000000
+
+Running without synchronization...
+
+=== UNSYNCHRONIZED RESULTS ===
+Expected final value: 8000000
+Actual final value: 2586777
+Lost updates: 5413223
+Lost updates percentage: 67,6653%
+Wall time: 146,483 ms
+
+Running with AtomicInteger...
+
+=== ATOMIC RESULTS ===
+Expected final value: 8000000
+Actual final value: 8000000
+Wall time: 65,316 ms
+Data correct: true
+
+=== SYNCHRONIZATION COST ===
+Time difference (atomic - unsynchronized): -81,167 ms
+Relative time penalty: -55,41%
+Note: AtomicInteger uses atomic operations, not a mutex lock.
+Status: Completed successfully
