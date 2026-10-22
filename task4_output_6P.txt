@@ -1,0 +1,10 @@
+=== TASK 4: Memory Transfer Profile ===
+Student ID: 230103324
+CPU cores: 8
+Path A: Multiprocessing Queue (Pickle)
+Path B: Shared Memory (allocation + copy + attach)
+
+Array Size | IPC Queue (ms) | Shared Memory (ms)
+
+Preparing array with 100,000 elements...
+ERROR: memoryview assignment: lvalue and rvalue have different structures
