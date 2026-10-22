@@ -1,0 +1,41 @@
+=== TASK 2: Multi-Core Scaling vs. Amdahl's Law ===
+Student ID: 230103324
+Operating System: macOS-26.6.2-arm64-arm-64bit-Mach-O
+CPU Architecture: arm64
+Logical CPU Cores: 8
+Array Size: 20,000,000
+Parallelizable Fraction (P): 0.95
+Worker Counts: [1, 2, 4, 8, 16]
+
+Generating float64 array...
+Array generated successfully.
+
+Benchmarking 1 worker(s)...
+Completed in 822.419 ms
+
+Benchmarking 2 worker(s)...
+Completed in 345.474 ms
+
+Benchmarking 4 worker(s)...
+Completed in 224.967 ms
+
+Benchmarking 8 worker(s)...
+Completed in 231.773 ms
+
+Benchmarking 16 worker(s)...
+Completed in 356.223 ms
+
+=== BENCHMARK RESULTS ===
+   Cores |  Wall Time (ms) |    Speedup |  Amdahl Upper Bound
+-----------------------------------------------------------------
+       1 |         822.419 |     1.000x |              1.000x
+       2 |         345.474 |     2.381x |              1.905x
+       4 |         224.967 |     3.656x |              3.478x
+       8 |         231.773 |     3.548x |              5.926x
+      16 |         356.223 |     2.309x |              9.143x
+
+=== VALIDATION ===
+Reference Sum (1 worker): 10003708.5857318435
+Note: Small floating-point differences may occur.
+Timing includes process startup and task scheduling.
+Status: Completed successfully
